@@ -7,9 +7,8 @@
 .container {
   background-image: url("./assets/opera-house.avif");
   width: 100%;
-  height: 940px;
+  height: 100%;
   background-size: cover;
   background-position: center 35%;
   min-height: 60vh;
-  margin-bottom: 1em;
 }

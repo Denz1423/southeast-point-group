@@ -1,6 +1,6 @@
 import "@/App.css";
 import Header from "./components/Header/Header";
-import About from "./pages/About";
+import About from "./pages/About/About";
 import { Box } from "@mui/material";
 
 function App() {
@@ -14,6 +14,8 @@ function App() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          backgroundColor: "#F1FAEE",
+          paddingTop: "1em"
         }}
       >
         <About />
