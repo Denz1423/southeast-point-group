@@ -1,7 +1,8 @@
 import "@/App.css";
-import Header from "./components/Header/Header";
-import About from "./pages/About/About";
-import { Box } from "@mui/material";
+import Header from "@/components/Header/Header";
+import About from "@/pages/About/AboutPage";
+import ServicesPage from "@/pages/Services/ServicesPage";
+import GalleryPage from "@/pages/Gallery/GalleryPage";
 
 function App() {
   return (
@@ -9,17 +10,9 @@ function App() {
       <div className="container">
         <Header />
       </div>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#F1FAEE",
-          paddingTop: "1em"
-        }}
-      >
-        <About />
-      </Box>
+      <About />
+      <ServicesPage />
+      <GalleryPage />
     </>
   );
 }

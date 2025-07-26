@@ -16,7 +16,7 @@ export default function Nav() {
         variant="text"
         onClick={toggleDrawer(true)}
         sx={{
-          color: "black",
+          color: "#1D3557",
           display: { xs: "flex", sm: "none" },
         }}
       >
@@ -31,6 +31,7 @@ export default function Nav() {
           "& .MuiDrawer-paper": {
             height: "100%",
             width: "100%",
+            backgroundColor: "#F1FAEE",
           },
         }}
       >
@@ -42,7 +43,7 @@ export default function Nav() {
           }}
         >
           <Button onClick={toggleDrawer(false)}>
-            <CloseIcon />
+            <CloseIcon sx={{ color: "#1D3557" }} />
           </Button>
         </Box>
         <NavList />

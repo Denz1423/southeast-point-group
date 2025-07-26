@@ -22,7 +22,7 @@ export default function NavList({ ...props }) {
         <Link
           key={page.id}
           sx={{
-            color: { xs: "black", sm: "black" },
+            color: { xs: "#1D3557", sm: "#1D3557" },
             textDecoration: "none",
           }}
         >

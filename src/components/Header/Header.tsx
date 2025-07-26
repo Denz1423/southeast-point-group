@@ -13,6 +13,7 @@ export default function Header() {
           boxShadow: "none",
         }}
         className="appbar"
+        position="sticky"
       >
         <Container>
           <Toolbar>

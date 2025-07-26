@@ -6,5 +6,3 @@ const about: string[] = [
 ];
 
 export default about;
-
-
