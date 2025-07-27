@@ -19,15 +19,7 @@ export default function NavList({ ...props }) {
       {...props}
     >
       {pages.map((page) => (
-        <Link
-          key={page.id}
-          sx={{
-            color: { xs: "#1D3557", sm: "#1D3557" },
-            textDecoration: "none",
-          }}
-        >
-          {page.name}
-        </Link>
+        <Link key={page.id}>{page.name}</Link>
       ))}
     </Stack>
   );

@@ -25,11 +25,7 @@ export default function ServicesPage() {
     >
       <Grid container padding={2} gap={5} sx={{ width: "80%" }}>
         <Grid size={{ xs: 12, sm: 12 }} sx={{ height: "60px", margin: "10px" }}>
-          <Typography
-            variant="h3"
-            align="left"
-            sx={{ fontFamily: "Quicksand", color: "#1D3557" }}
-          >
+          <Typography variant="h3" align="left">
             What We Offer
           </Typography>
         </Grid>
@@ -57,17 +53,12 @@ export default function ServicesPage() {
                 <Typography
                   variant="h4"
                   sx={{
-                    fontFamily: "Quicksand",
                     paddingBottom: "0.5em",
-                    color: "#1D3557",
                   }}
                 >
                   Airport Transfer
                 </Typography>
-                <Typography
-                  variant="body1"
-                  sx={{ fontFamily: "Open Sans", color: "#2F6B3A" }}
-                >
+                <Typography variant="body1" sx={{ color: "#2F6B3A" }}>
                   Reliable and comfortable rides to and from the airport, on
                   time, every time.
                 </Typography>
@@ -99,13 +90,10 @@ export default function ServicesPage() {
                 alt="privateTour"
               />
               <CardContent>
-                <Typography
-                  variant="h4"
-                  sx={{ fontFamily: "Quicksand", paddingBottom: "0.5em" }}
-                >
+                <Typography variant="h4" sx={{ paddingBottom: "0.5em" }}>
                   Private Tour
                 </Typography>
-                <Typography variant="body1" sx={{ fontFamily: "Open Sans" }}>
+                <Typography variant="body1" sx={{ color: "black" }}>
                   Explore at your own pace with personalised routes and a
                   dedicated driver.
                 </Typography>
@@ -135,13 +123,10 @@ export default function ServicesPage() {
                 alt="group"
               />
               <CardContent>
-                <Typography
-                  variant="h4"
-                  sx={{ fontFamily: "Quicksand", paddingBottom: "0.5em" }}
-                >
+                <Typography variant="h4" sx={{ paddingBottom: "0.5em" }}>
                   Group Transport
                 </Typography>
-                <Typography variant="body1" sx={{ fontFamily: "Open Sans" }}>
+                <Typography variant="body1">
                   Travel together in comfort, perfect for events, outings, and
                   group adventures.
                 </Typography>

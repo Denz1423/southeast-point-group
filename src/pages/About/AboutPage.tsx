@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import aboutPic from "@/assets/about-pic.avif";
 import "@/pages/About/About.css";
 import about from "./AboutText";
@@ -36,11 +36,7 @@ export default function About() {
     >
       <Grid container spacing={3} padding={2} sx={{ width: "70%" }}>
         <Grid size={{ xs: 12, sm: 12 }} className="hidden">
-          <Typography
-            variant="h3"
-            align="center"
-            sx={{ padding: "10px", fontFamily: "Quicksand", color: "#1D3557" }}
-          >
+          <Typography variant="h3" align="center" sx={{ padding: "10px" }}>
             About Us
           </Typography>
         </Grid>
@@ -57,20 +53,17 @@ export default function About() {
           <Typography
             variant="h4"
             component="h2"
-            sx={{ fontFamily: "Quicksand", margin: "5px", color: "#2F6B3A" }}
+            sx={{ margin: "5px", color: "#2F6B3A" }}
             align="center"
           >
             Transporting is caring
           </Typography>
           <br />
           {about.map((text: string, index: number) => (
-            <>
+            <Container key={index} sx={{ padding: "3px" }}>
               <Typography
-                key={index}
                 variant="body1"
                 sx={{
-                  fontFamily: "Open Sans",
-                  padding: "5px",
                   color: "#2F6B3A",
                 }}
                 className="about-text"
@@ -78,7 +71,7 @@ export default function About() {
                 {text}
               </Typography>
               <br />
-            </>
+            </Container>
           ))}
         </Grid>
       </Grid>

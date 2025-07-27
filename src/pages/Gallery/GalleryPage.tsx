@@ -1,8 +1,28 @@
-import { Box, Card, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { useState } from "react";
+import G1 from "@/assets/G1.avif";
+import G2 from "@/assets/G2.avif";
+import G3 from "@/assets/G3.avif";
+import G4 from "@/assets/G4.avif";
+import G5 from "@/assets/G5.avif";
+import G6 from "@/assets/G6.avif";
+
+const images = [G1, G2, G3, G4, G5, G6];
 
 export default function GalleryPage() {
+  const [index, setIndex] = useState(0);
+  const cardsToDisplay = 3;
+
+  const goBack = () => {
+    setIndex(index === 0 ? images.length - cardsToDisplay : index - 1);
+  };
+
+  const goNext = () => {
+    setIndex(index === images.length - cardsToDisplay ? 0 : index + 1);
+  };
+
   return (
     <Box
       sx={{
@@ -14,15 +34,11 @@ export default function GalleryPage() {
       <Typography
         variant="h3"
         align="center"
-        sx={{ fontFamily: "Quicksand", color: "#1D3557", margin: "10px" }}
+        sx={{ color: "#1D3557", margin: "10px" }}
       >
         Gallery
       </Typography>
-      <Typography
-        variant="h6"
-        align="center"
-        sx={{ fontFamily: "Quicksand", color: "#1D3557" }}
-      >
+      <Typography variant="h6" align="center" sx={{ color: "#1D3557" }}>
         Peek into our trips!
       </Typography>
       <Box
@@ -35,9 +51,11 @@ export default function GalleryPage() {
           height: "400px",
         }}
       >
-        <IconButton>
-          <ArrowBackIcon />
-        </IconButton>
+        {index >= 0 && (
+          <IconButton style={{ fontSize: "30px" }} onClick={goBack}>
+            <ArrowBackIcon />
+          </IconButton>
+        )}
         <Box
           sx={{
             display: "flex",
@@ -48,15 +66,21 @@ export default function GalleryPage() {
             height: " 400px",
           }}
         >
-          <Card sx={{ width: "100%", height: "100%" }}>Card1</Card>
-          <Card sx={{ width: "100%", height: "100%" }}>Card2</Card>
-          <Card sx={{ width: "100%", height: "100%" }}>Card3</Card>
-          <Card sx={{ width: "100%", height: "100%" }}>Card4</Card>
-          <Card sx={{ width: "100%", height: "100%" }}>Card5</Card>
+          {images.slice(index, index + cardsToDisplay).map((image) => (
+            <img
+              src={image}
+              alt={image}
+              height={450}
+              width={450}
+              style={{ objectFit: "cover" }}
+            />
+          ))}
         </Box>
-        <IconButton>
-          <ArrowForwardIcon />
-        </IconButton>
+        {index <= images.length - cardsToDisplay && (
+          <IconButton style={{ fontSize: "30px" }} onClick={goNext}>
+            <ArrowForwardIcon />
+          </IconButton>
+        )}
       </Box>
     </Box>
   );
