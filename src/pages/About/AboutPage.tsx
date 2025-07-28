@@ -11,9 +11,9 @@ export default function About() {
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
         }
-        // else {
-        //   entry.target.classList.remove("show");
-        // }
+        else {
+          entry.target.classList.remove("show");
+        }
       });
     });
 

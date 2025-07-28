@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header";
 import About from "@/pages/About/AboutPage";
 import ServicesPage from "@/pages/Services/ServicesPage";
 import GalleryPage from "@/pages/Gallery/GalleryPage";
+import ContactPage from "@/pages/Contact/ContactPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <About />
       <ServicesPage />
       <GalleryPage />
+      <ContactPage />
     </>
   );
 }
