@@ -2,27 +2,10 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import aboutPic from "@/assets/about-pic.avif";
 import "@/pages/About/About.css";
 import about from "./AboutText";
-import { useEffect } from "react";
+import useRevealOnScroll from "@/hooks/useRevealOnScroll";
 
 export default function About() {
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
-        else {
-          entry.target.classList.remove("show");
-        }
-      });
-    });
-
-    const hiddenElements = document.querySelectorAll(".hidden");
-
-    hiddenElements.forEach((el) => {
-      observer.observe(el);
-    });
-  }, []);
+  useRevealOnScroll([".firsthidden", ".secondhidden"]);
 
   return (
     <Box
@@ -35,12 +18,12 @@ export default function About() {
       }}
     >
       <Grid container spacing={3} padding={2} sx={{ width: "70%" }}>
-        <Grid size={{ xs: 12, sm: 12 }} className="hidden">
+        <Grid size={{ xs: 12, sm: 12 }}>
           <Typography variant="h3" align="center" sx={{ padding: "10px" }}>
             About Us
           </Typography>
         </Grid>
-        <Grid size={{ xs: 12, sm: 6 }} className="hidden">
+        <Grid size={{ xs: 12, sm: 6 }} className="firsthidden">
           <img
             src={aboutPic}
             alt="about-pic"
@@ -49,7 +32,7 @@ export default function About() {
             }}
           />
         </Grid>
-        <Grid size={{ xs: 12, sm: 6 }} className="hidden">
+        <Grid size={{ xs: 12, sm: 6 }} className="secondhidden">
           <Typography
             variant="h4"
             component="h2"

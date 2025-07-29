@@ -1,14 +1,33 @@
-@media (prefers-reduced-motion) {
-  .hidden {
+@keyframes fadeInFromLeft {
+  0% {
     opacity: 0;
-    filter: blur(5px);
     transform: translateX(-100%);
-    transition: all 1s;
   }
-
-  .show {
+  100% {
     opacity: 1;
-    filter: blur(0);
     transform: translateX(0);
   }
+}
+
+.firsthidden,
+.secondhidden {
+  opacity: 0;
+  filter: blur(5px);
+  transition: opacity 1s ease-out, filter 1s ease-out;
+}
+
+.firsthidden.show,
+.secondhidden.show {
+  opacity: 1;
+  filter: blur(0);
+  animation-name: fadeInFromLeft;
+  animation-timing-function: ease-out;
+}
+
+.firsthidden.show {
+  animation-duration: 0.6s;
+}
+
+.secondhidden.show {
+  animation-duration: 0.8s;
 }

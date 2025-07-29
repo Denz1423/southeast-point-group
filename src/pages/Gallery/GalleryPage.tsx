@@ -1,47 +1,10 @@
-import {
-  Box,
-  IconButton,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { useState } from "react";
-import G1 from "@/assets/G1.avif";
-import G2 from "@/assets/G2.avif";
-import G3 from "@/assets/G3.avif";
-import G4 from "@/assets/G4.avif";
-import G5 from "@/assets/G5.avif";
-import G6 from "@/assets/G6.avif";
+import { Box, Typography } from "@mui/material";
+import useIsMobile from "@/hooks/useIsMobile";
+import Carousel from "@/components/Carousel/Carousel";
+import { galleryImages } from "@/pages/Gallery/GalleryImages";
 
 export default function GalleryPage() {
-  const images = [G1, G2, G3, G4, G5, G6];
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [index, setIndex] = useState(0);
-
-  const goBack = () => {
-    setIndex((prevIndex) => {
-      const newIndex = (prevIndex - 1 + images.length) % images.length;
-      return newIndex;
-    });
-  };
-
-  const goNext = () => {
-    setIndex((prevIndex) => {
-      const newIndex = (prevIndex + 1) % images.length;
-      return newIndex;
-    });
-  };
-
-  const displayedImages = isMobile
-    ? [images[index]]
-    : [
-        images[index],
-        images[(index + 1) % images.length],
-        images[(index + 2) % images.length],
-      ];
+  const isMobile = useIsMobile();
 
   return (
     <Box
@@ -66,36 +29,7 @@ export default function GalleryPage() {
       >
         Peek into our trips!
       </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-        }}
-      >
-        <IconButton style={{ fontSize: "30px" }} onClick={goBack}>
-          <ArrowBackIcon />
-        </IconButton>
-
-        {displayedImages.map((image, i) => (
-          <img
-            key={i}
-            src={image}
-            alt={image}
-            style={{
-              objectFit: "cover",
-              maxWidth: "100%",
-              height: isMobile ? "250px" : "450px",
-              width: isMobile ? "300px" : "400px",
-            }}
-          />
-        ))}
-
-        <IconButton style={{ fontSize: "30px" }} onClick={goNext}>
-          <ArrowForwardIcon />
-        </IconButton>
-      </Box>
+      <Carousel images={galleryImages} />
     </Box>
   );
 }

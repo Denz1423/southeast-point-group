@@ -3,9 +3,12 @@ import { contactData, socialData } from "@/pages/Contact/ContactData";
 import ContactCard from "@/pages/Contact/ContactCard";
 import SocialRow from "@/pages/Contact/SocialRow";
 import useIsMobile from "@/hooks/useIsMobile";
+import useRevealOnScroll from "@/hooks/useRevealOnScroll";
+import "@/pages/Contact/Contact.css";
 
 export default function ContactPage() {
   const isMobile = useIsMobile();
+  useRevealOnScroll([".slide-in-left", ".slide-in-right"]);
 
   return (
     <Container
@@ -29,13 +32,16 @@ export default function ContactPage() {
         We can help you fit your trip and experience within your allotted
         budget.
       </Typography>
-      <Grid container padding={2} spacing={10}>
+      <Grid container padding={2} spacing={10} justifyContent="space-evenly">
         {contactData.map((contact, index) => {
+          const slideClass =
+            index % 2 === 0 ? "slide-in-left" : "slide-in-right";
           return (
             <Grid
               key={index}
               size={{ xs: 12, sm: 4 }}
               sx={{ width: isMobile ? "250px" : "100%" }}
+              className={slideClass}
             >
               <ContactCard
                 cardImage={contact.image}
