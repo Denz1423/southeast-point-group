@@ -11,8 +11,11 @@ import {
 import airportTransfer from "@/assets/airport-transfer.avif";
 import group from "@/assets/group.avif";
 import privateTour from "@/assets/private-tour.avif";
+import useIsMobile from "@/hooks/useIsMobile";
 
 export default function ServicesPage() {
+  const isMobile = useIsMobile();
+
   return (
     <Box
       sx={{
@@ -25,7 +28,13 @@ export default function ServicesPage() {
     >
       <Grid container padding={2} gap={5} sx={{ width: "80%" }}>
         <Grid size={{ xs: 12, sm: 12 }} sx={{ height: "60px", margin: "10px" }}>
-          <Typography variant="h3" align="left">
+          <Typography
+            variant="h3"
+            sx={{
+              fontSize: isMobile ? "2rem" : "auto",
+              textAlign: isMobile ? "center" : "auto",
+            }}
+          >
             What We Offer
           </Typography>
         </Grid>
