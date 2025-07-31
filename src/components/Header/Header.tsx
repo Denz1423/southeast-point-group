@@ -1,8 +1,8 @@
 import SEPG from "/SEPG.svg";
-import { Box, Container, Stack, Toolbar } from "@mui/material";
+import { Box, Stack, Toolbar } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
-import Nav from "../Navigation/Nav";
-import HideOnScroll from "./HideOnScroll";
+import Nav from "@/components/Navigation/Nav";
+import HideOnScroll from "@/components/Header/HideOnScroll";
 
 export default function Header() {
   return (
@@ -15,11 +15,11 @@ export default function Header() {
         className="appbar"
         position="sticky"
       >
-        <Container>
+        <Box>
           <Toolbar>
             <Stack
               direction="row"
-              justifyContent="space-between"
+              justifyContent="space-around"
               alignItems="center"
               width="100%"
               height="100%"
@@ -37,7 +37,7 @@ export default function Header() {
               <Nav />
             </Stack>
           </Toolbar>
-        </Container>
+        </Box>
       </AppBar>
     </HideOnScroll>
   );

@@ -10,6 +10,15 @@ const theme = createTheme({
     },
     h3: {
       fontFamily: "Quicksand, sans-serif",
+      "@media (max-width:600px)": {
+        fontSize: "2rem",
+      },
+    },
+    h4: {
+      fontFamily: "Quicksand, sans-serif",
+      "@media (max-width:600px)": {
+        fontSize: "1.5rem",
+      },
     },
     h6: {
       fontFamily: "Quicksand, sans-serif",
@@ -20,6 +29,17 @@ const theme = createTheme({
     },
   },
   components: {
+    MuiContainer: {
+      defaultProps: {
+        maxWidth: false,
+      },
+      styleOverrides: {
+        root: {
+          width: "100%",
+          padding: "2rem",
+        },
+      },
+    },
     MuiLink: {
       styleOverrides: {
         root: {

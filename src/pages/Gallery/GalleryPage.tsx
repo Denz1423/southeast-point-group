@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import useIsMobile from "@/hooks/useIsMobile";
 import Carousel from "@/components/Carousel/Carousel";
 import { galleryImages } from "@/pages/Gallery/GalleryImages";
@@ -7,18 +7,17 @@ export default function GalleryPage() {
   const isMobile = useIsMobile();
 
   return (
-    <Box
+    <Container
       sx={{
-        width: "100%",
-        height: isMobile ? "auto" : "80%",
-        padding: isMobile ? "0" : "2em",
-        paddingBottom: isMobile ? "40px" : "auto",
+        height: isMobile ? "60vh" : "85%",
+        padding: isMobile ? "0" : "auto",
+        paddingBottom: isMobile ? "2rem" : "auto",
       }}
     >
       <Typography
         variant="h3"
         align="center"
-        sx={{ color: "#1D3557", margin: "10px" }}
+        sx={{ color: "#1D3557", margin: "1rem" }}
       >
         Gallery
       </Typography>
@@ -30,6 +29,6 @@ export default function GalleryPage() {
         Peek into our trips!
       </Typography>
       <Carousel images={galleryImages} />
-    </Box>
+    </Container>
   );
 }

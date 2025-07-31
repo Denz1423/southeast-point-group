@@ -3,9 +3,11 @@ import {
   Card,
   CardContent,
   CardMedia,
+  Link,
   Typography,
   type CardProps,
 } from "@mui/material";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 interface ContactCardProps extends CardProps {
   cardImage: string;
@@ -24,6 +26,7 @@ export default function ContactCard({
 
   return (
     <Card
+      elevation={3}
       sx={{
         height: isMobile ? "400px" : "200px",
         display: "flex",
@@ -53,14 +56,28 @@ export default function ContactCard({
           {cardHeading}
         </Typography>
         <Typography variant="h6">{cardSubHeading}</Typography>
-        <Typography
+        <Link
           variant="body1"
+          href={`tel:${cardPhoneNum}`}
+          target="_blank"
+          rel="noopener"
           sx={{
             paddingBottom: "0.5em",
           }}
         >
           {cardPhoneNum}
-        </Typography>
+        </Link>
+        <Link
+          variant="body1"
+          // href={`https://wa.me/${cardPhoneNum}`}
+          target="_blank"
+          rel="noopener"
+          sx={{
+            paddingLeft: "1em",
+          }}
+        >
+          <WhatsAppIcon />
+        </Link>
       </CardContent>
     </Card>
   );

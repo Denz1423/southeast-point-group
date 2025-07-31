@@ -11,6 +11,7 @@ type ContactType = {
 type SocialType = {
   iconName: "email" | "facebook" | "instagram";
   label: string;
+  link: string;
 };
 
 export const contactData: ContactType[] = [
@@ -32,13 +33,16 @@ export const socialData: SocialType[] = [
   {
     iconName: "email",
     label: "southeastpointgroup@gmail.com",
+    link: "mailto:southeastpointgroup@gmail.com",
   },
   {
     iconName: "facebook",
     label: "Southeast Point Group",
+    link: "https://www.facebook.com/people/Southeast-Point-Group/100095672074781/",
   },
   {
     iconName: "instagram",
     label: "southeastpointgroup",
+    link: "https://www.instagram.com/southeastpointgroup/?hl=en",
   },
 ];

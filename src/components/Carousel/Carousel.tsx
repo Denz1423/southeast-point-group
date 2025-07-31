@@ -2,11 +2,13 @@ import useIsMobile from "@/hooks/useIsMobile";
 import { Box, IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default function Carousel({ images }: { images: string[] }) {
   const isMobile = useIsMobile();
   const [index, setIndex] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
 
   const goBack = () => {
     setIndex((prevIndex) => {
@@ -30,6 +32,29 @@ export default function Carousel({ images }: { images: string[] }) {
         images[(index + 2) % images.length],
       ];
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const distance = touchStartX.current - touchEndX.current;
+    const swipeThreshold = 50;
+
+    const touchedElement = e.target as HTMLElement;
+    if (touchedElement.closest("button")) return;
+
+    if (distance > swipeThreshold) {
+      goNext();
+    } else if (distance < -swipeThreshold) {
+      goBack();
+    }
+  };
+
   return (
     <Box
       sx={{
@@ -37,7 +62,11 @@ export default function Carousel({ images }: { images: string[] }) {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
+        height: "60%",
       }}
+      onTouchStart={isMobile ? handleTouchStart : undefined}
+      onTouchMove={isMobile ? handleTouchMove : undefined}
+      onTouchEnd={isMobile ? handleTouchEnd : undefined}
     >
       <IconButton style={{ fontSize: "30px" }} onClick={goBack}>
         <ArrowBackIcon />
@@ -50,6 +79,7 @@ export default function Carousel({ images }: { images: string[] }) {
           alt={image}
           style={{
             objectFit: "cover",
+            flexGrow: "1",
             maxWidth: "100%",
             height: isMobile ? "250px" : "450px",
             width: isMobile ? "300px" : "400px",

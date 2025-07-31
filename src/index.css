@@ -11,8 +11,13 @@ body {
 #root {
   height: 100vh;
   width: calc(100vw - 15px);
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 800px) {
+  #root {
     width: calc(100vw);
+  }
+  body::-webkit-scrollbar {
+    display: none;
   }
 }

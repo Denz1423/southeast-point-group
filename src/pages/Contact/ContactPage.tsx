@@ -12,10 +12,7 @@ export default function ContactPage() {
 
   return (
     <Container
-      maxWidth={false}
       sx={{
-        width: "100%",
-        padding: "2rem",
         backgroundColor: "#F1FAEE",
       }}
     >
@@ -32,7 +29,12 @@ export default function ContactPage() {
         We can help you fit your trip and experience within your allotted
         budget.
       </Typography>
-      <Grid container padding={2} spacing={10} justifyContent="space-evenly">
+      <Grid
+        container
+        padding={2}
+        spacing={isMobile ? 5 : 10}
+        justifyContent="space-evenly"
+      >
         {contactData.map((contact, index) => {
           const slideClass =
             index % 2 === 0 ? "slide-in-left" : "slide-in-right";
@@ -53,9 +55,14 @@ export default function ContactPage() {
           );
         })}
       </Grid>
-      <Box sx={{ width: "100%" }}>
-        {socialData.map((item, index) => (
-          <SocialRow key={index} iconName={item.iconName} label={item.label} />
+      <Box sx={{ width: "100%", padding: "1rem 0" }}>
+        {socialData.map((social, index) => (
+          <SocialRow
+            key={index}
+            iconName={social.iconName}
+            label={social.label}
+            link={social.link}
+          />
         ))}
       </Box>
     </Container>
