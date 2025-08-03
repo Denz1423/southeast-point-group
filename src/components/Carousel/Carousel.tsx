@@ -3,6 +3,7 @@ import { Box, IconButton } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useRef, useState } from "react";
+import "@/components/Carousel/Carousel.css";
 
 export default function Carousel({ images }: { images: string[] }) {
   const isMobile = useIsMobile();
@@ -62,7 +63,6 @@ export default function Carousel({ images }: { images: string[] }) {
         alignItems: "center",
         justifyContent: "center",
         width: "100%",
-        height: "60%",
       }}
       onTouchStart={isMobile ? handleTouchStart : undefined}
       onTouchMove={isMobile ? handleTouchMove : undefined}
@@ -74,9 +74,10 @@ export default function Carousel({ images }: { images: string[] }) {
 
       {displayedImages.map((image, i) => (
         <img
-          key={i}
+          key={`${index}-${i}`}
           src={image}
           alt={image}
+          className="fade-in"
           style={{
             objectFit: "cover",
             flexGrow: "1",

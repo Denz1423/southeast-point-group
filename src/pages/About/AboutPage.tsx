@@ -59,6 +59,7 @@ export default function About() {
                 >
                   {about[0]}
                 </Typography>
+                <br />
               </Container>
 
               {readMore &&

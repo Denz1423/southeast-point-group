@@ -1,4 +1,4 @@
-import { Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import useIsMobile from "@/hooks/useIsMobile";
 import Carousel from "@/components/Carousel/Carousel";
 import { galleryImages } from "@/pages/Gallery/GalleryImages";
@@ -29,6 +29,13 @@ export default function GalleryPage() {
         Peek into our trips!
       </Typography>
       <Carousel images={galleryImages} />
+      <Box
+        sx={{ display: "flex", justifyContent: "flex-end", padding:"1rem" }}
+      >
+        <Button size="small" sx={{ color: "#5CA9E9" }}>
+          See More
+        </Button>
+      </Box>
     </Container>
   );
 }

@@ -7,9 +7,10 @@ const useRevealOnScroll = (selectors: string[], showClass = "show") => {
         const target = entry.target as HTMLElement;
         if (entry.isIntersecting) {
           target.classList.add(showClass);
-        } else {
-          target.classList.remove(showClass);
-        }
+        } 
+        // else {
+        //   target.classList.remove(showClass);
+        // }
       });
     });
 

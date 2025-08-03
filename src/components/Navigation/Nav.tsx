@@ -2,7 +2,7 @@ import { Box, Button, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useState } from "react";
-import NavList from "./NavList";
+import NavList from "@/components/Navigation/NavList";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -13,7 +13,6 @@ export default function Nav() {
   return (
     <>
       <Button
-        variant="text"
         onClick={toggleDrawer(true)}
         sx={{
           color: "#1D3557",

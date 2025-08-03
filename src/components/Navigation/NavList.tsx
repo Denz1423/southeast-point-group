@@ -1,11 +1,5 @@
 import { Link, Stack } from "@mui/material";
-
-const pages = [
-  { name: "Home", id: "home" },
-  { name: "About", id: "about" },
-  { name: "Gallery", id: "gallery" },
-  { name: "Contact", id: "contact" },
-];
+import { PageLinks } from "@/components/Navigation/NavData";
 
 export default function NavList({ ...props }) {
   return (
@@ -18,7 +12,7 @@ export default function NavList({ ...props }) {
       fontSize={{ xs: "22px", sm: "initial" }}
       {...props}
     >
-      {pages.map((page) => (
+      {PageLinks.map((page) => (
         <Link key={page.id}>{page.name}</Link>
       ))}
     </Stack>
