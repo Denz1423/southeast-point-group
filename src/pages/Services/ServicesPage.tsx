@@ -1,45 +1,46 @@
-import { Container, Grid, Typography } from "@mui/material";
-import useIsMobile from "@/hooks/useIsMobile";
-import { servicesData } from "./ServicesData";
-import ServicesCard from "./ServicesCard";
+import { servicesData } from "@/pages/Services/ServicesData";
+import ServicesCard from "@/pages/Services/ServicesCard";
+import { Container, SimpleGrid, Title } from "@mantine/core";
 
 export default function ServicesPage() {
-  const isMobile = useIsMobile();
-
   return (
     <Container
-      sx={{
+      fluid
+      style={{
         backgroundColor: "#F1FAEE",
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
       }}
     >
-      <Grid container padding={2} gap={5} sx={{ width: "80%" }}>
-        <Grid size={{ xs: 12, sm: 12 }} sx={{ height: "60px" }}>
-          <Typography
-            variant="h3"
-            sx={{
-              textAlign: isMobile ? "center" : "auto",
-            }}
-          >
-            What We Offer
-          </Typography>
-        </Grid>
-        <Grid container spacing={2} sx={{ width: "100%" }}>
-          {servicesData.map((service, index) => {
-            return (
-              <Grid size={{ xs: 12, sm: 4 }} key={index}>
-                <ServicesCard
-                  cardImage={service.image}
-                  cardHeading={service.heading}
-                  cardBody={service.body}
-                  cardButtonLabel={service.buttonText}
-                />
-              </Grid>
-            );
-          })}
-        </Grid>
-      </Grid>
+      <Title
+        order={1}
+        p="1rem"
+        style={{
+          textAlign: "center",
+        }}
+      >
+        What We Offer
+      </Title>
+      <SimpleGrid
+        cols={{ base: 1, sm: 3 }}
+        spacing={{ base: "md", sm: "xl" }}
+        verticalSpacing={{ base: "md", sm: "xl" }}
+        p="1rem"
+        m="1rem"
+      >
+        {servicesData.map((service) => {
+          return (
+            <ServicesCard
+              key={service.heading}
+              cardImage={service.image}
+              cardHeading={service.heading}
+              cardBody={service.body}
+              cardButtonLabel={service.buttonText}
+            />
+          );
+        })}
+      </SimpleGrid>
     </Container>
   );
 }

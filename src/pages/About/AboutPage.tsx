@@ -1,6 +1,14 @@
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
-import aboutPic from "@/assets/about-pic.avif";
 import "@/pages/About/About.css";
+import {
+  Button,
+  Box,
+  Title,
+  Typography,
+  Container,
+  SimpleGrid,
+  Image,
+} from "@mantine/core";
+import aboutPic from "@/assets/about-pic.avif";
 import about from "@/pages/About/AboutData";
 import useRevealOnScroll from "@/hooks/useRevealOnScroll";
 import useIsMobile from "@/hooks/useIsMobile";
@@ -16,21 +24,29 @@ export default function About() {
   };
 
   return (
-    <Box
-      sx={{
-        width: "100%",
+    <Container
+      style={{
         justifyItems: "center",
-        padding: "10px",
       }}
     >
-      <Grid container spacing={3} padding={2} sx={{ width: "70%" }}>
-        <Grid size={{ xs: 12, sm: 12 }}>
-          <Typography variant="h3" align="center" sx={{ padding: "10px" }}>
-            About Us
-          </Typography>
-        </Grid>
-        <Grid size={{ xs: 12, sm: 6 }} className="firsthidden">
-          <img
+      <Title
+        order={1}
+        p="1rem"
+        style={{
+          textAlign: "center",
+        }}
+      >
+        About Us
+      </Title>
+      <SimpleGrid
+        cols={{ base: 1, sm: 2 }}
+        spacing={{ base: "md", sm: "xl" }}
+        verticalSpacing={{ base: "md", sm: "xl" }}
+        p="1rem"
+        style={{ justifyItems: "center" }}
+      >
+        <Box className="firsthidden">
+          <Image
             src={aboutPic}
             alt="about-pic"
             style={{
@@ -38,49 +54,47 @@ export default function About() {
               height: isMobile ? "350px" : "auto",
             }}
           />
-        </Grid>
-        <Grid size={{ xs: 12, sm: 6 }} className="secondhidden">
-          <Typography
-            variant="h4"
-            sx={{ margin: "5px", color: "#2F6B3A" }}
-            align="center"
+        </Box>
+
+        <Box className="secondhidden">
+          <Title
+            order={2}
+            style={{ margin: "5px", color: "#2F6B3A", textAlign: "center" }}
           >
             Transporting is caring
-          </Typography>
-          <br />
-
+          </Title>
           {isMobile ? (
             <>
-              <Container sx={{ padding: "3px" }}>
+              <Box p="3px">
                 <Typography
                   variant="body1"
-                  sx={{ color: "#2F6B3A" }}
+                  style={{ color: "#2F6B3A" }}
                   className="about-text"
                 >
                   {about[0]}
                 </Typography>
                 <br />
-              </Container>
+              </Box>
 
               {readMore &&
                 about.slice(1).map((text, index) => (
-                  <Container key={index} sx={{ padding: "3px" }}>
+                  <Box key={index} p="3px">
                     <Typography
                       variant="body1"
-                      sx={{ color: "#2F6B3A" }}
+                      style={{ color: "#2F6B3A" }}
                       className="about-text"
                     >
                       {text}
                     </Typography>
                     <br />
-                  </Container>
+                  </Box>
                 ))}
 
-              <Box textAlign="center">
+              <Box>
                 <Button
-                  variant="outlined"
+                  variant="outline"
                   onClick={toggleReadMore}
-                  sx={{ color: "#5CA9E9", border: "none" }}
+                  style={{ color: "#5CA9E9", border: "none" }}
                 >
                   {readMore ? "Read Less" : "Read More"}
                 </Button>
@@ -88,20 +102,20 @@ export default function About() {
             </>
           ) : (
             about.map((text, index) => (
-              <Container key={index} sx={{ padding: "3px" }}>
+              <Box key={index} p="3px">
                 <Typography
                   variant="body1"
-                  sx={{ color: "#2F6B3A" }}
+                  style={{ color: "#2F6B3A" }}
                   className="about-text"
                 >
                   {text}
                 </Typography>
                 <br />
-              </Container>
+              </Box>
             ))
           )}
-        </Grid>
-      </Grid>
-    </Box>
+        </Box>
+      </SimpleGrid>
+    </Container>
   );
 }

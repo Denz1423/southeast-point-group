@@ -1,9 +1,9 @@
-import { Link, Typography } from "@mui/material";
 import type { JSX } from "react";
-import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import FacebookOutlinedIcon from "@mui/icons-material/FacebookOutlined";
-import InstagramIcon from "@mui/icons-material/Instagram";
+import { Anchor, Typography } from "@mantine/core";
 import useIsMobile from "@/hooks/useIsMobile";
+import EmailIcon from "@/icons/EmailIcon";
+import FacebookIcon from "@/icons/FacebookIcon";
+import InstagramIcon from "@/icons/InstagramIcon";
 
 interface SocialRowProps {
   iconName: string;
@@ -12,8 +12,8 @@ interface SocialRowProps {
 }
 
 const iconMap: Record<string, JSX.Element> = {
-  email: <EmailOutlinedIcon fontSize="large" sx={{ color: "#5CA9E9" }} />,
-  facebook: <FacebookOutlinedIcon fontSize="large" sx={{ color: "#5CA9E9" }} />,
+  email: <EmailIcon fontSize="large" sx={{ color: "#5CA9E9" }} />,
+  facebook: <FacebookIcon fontSize="large" sx={{ color: "#5CA9E9" }} />,
   instagram: <InstagramIcon fontSize="large" sx={{ color: "#5CA9E9" }} />,
 };
 
@@ -22,12 +22,12 @@ export default function SocialRow({ iconName, label, link }: SocialRowProps) {
   const IconComponent = iconMap[iconName];
 
   return (
-    <Link
+    <Anchor
       href={link}
       target="_blank"
       rel="noopener"
       underline="hover"
-      sx={{
+      style={{
         display: "flex",
         alignItems: "center",
         padding: isMobile ? "0.5rem" : "0.5rem 1rem",
@@ -39,7 +39,7 @@ export default function SocialRow({ iconName, label, link }: SocialRowProps) {
       {IconComponent ?? null}
       <Typography
         variant="body1"
-        sx={{
+        style={{
           fontSize: isMobile ? "1rem" : "20px",
           padding: isMobile ? "0.5rem" : "0 1rem",
           color: "#5CA9E9",
@@ -47,6 +47,6 @@ export default function SocialRow({ iconName, label, link }: SocialRowProps) {
       >
         {label}
       </Typography>
-    </Link>
+    </Anchor>
   );
 }

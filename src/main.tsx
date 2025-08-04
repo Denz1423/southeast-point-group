@@ -1,11 +1,11 @@
 import { createRoot } from "react-dom/client";
 import "@/index.css";
+import "@mantine/core/styles.css";
 import App from "@/App.tsx";
-import theme from "@/theme/theme";
-import { ThemeProvider } from "@mui/material/styles";
+import { MantineProvider } from "@mantine/core";
 
 createRoot(document.getElementById("root")!).render(
-  <ThemeProvider theme={theme}>
+  <MantineProvider>
     <App />
-  </ThemeProvider>
+  </MantineProvider>
 );

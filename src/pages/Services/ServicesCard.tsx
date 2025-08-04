@@ -1,15 +1,7 @@
 import useIsMobile from "@/hooks/useIsMobile";
-import {
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Typography,
-  type CardProps,
-} from "@mui/material";
+import { Button, Card, Image, Title, Typography } from "@mantine/core";
 
-interface ServiceCardProps extends CardProps {
+interface ServiceCardProps {
   cardImage: string;
   cardHeading: string;
   cardBody: string;
@@ -23,11 +15,10 @@ export default function ServicesCard({
   cardButtonLabel,
 }: ServiceCardProps) {
   const isMobile = useIsMobile();
-  
+
   return (
     <Card
-      elevation={0}
-      sx={{
+      style={{
         maxWidth: "100%",
         backgroundColor: "transparent",
         transition: "transform 0.3s ease-in-out",
@@ -37,30 +28,39 @@ export default function ServicesCard({
         },
       }}
     >
-      <CardMedia
-        component="img"
-        image={cardImage}
-        alt={cardHeading}
-        sx={{ height: isMobile ? "300px" : "500px" }}
-      />
-      <CardContent>
-        <Typography
-          variant="h4"
-          sx={{
-            paddingBottom: "0.5em",
+      <Card.Section>
+        <Image
+          src={cardImage}
+          alt={cardHeading}
+          style={{ height: isMobile ? "300px" : "500px" }}
+        />
+      </Card.Section>
+      <Card.Section>
+        <Title
+          order={2}
+          style={{
+            padding: "1rem 0",
           }}
         >
           {cardHeading}
-        </Typography>
-        <Typography variant="body1" sx={{ color: "#2F6B3A" }}>
+        </Title>
+        <Typography variant="body1" style={{ color: "#2F6B3A" }}>
           {cardBody}
         </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" sx={{ color: "#5CA9E9" }}>
+      </Card.Section>
+      <Card.Section
+        style={{
+          padding: "0.5rem 0",
+        }}
+      >
+        <Button
+          variant="transparent"
+          size="sm"
+          style={{ color: "#5CA9E9", padding: "0" }}
+        >
           {cardButtonLabel}
         </Button>
-      </CardActions>
+      </Card.Section>
     </Card>
   );
 }

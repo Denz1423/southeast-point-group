@@ -1,8 +1,7 @@
-import { useTheme, useMediaQuery } from "@mui/material";
+import { useMediaQuery } from "@mantine/hooks";
 
 const useIsMobile = (): boolean => {
-  const theme = useTheme();
-  return useMediaQuery(theme.breakpoints.down("sm"));
+  return useMediaQuery("(max-width: 48em)");
 };
 
 export default useIsMobile;

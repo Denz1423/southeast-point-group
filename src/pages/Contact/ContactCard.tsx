@@ -1,15 +1,8 @@
 import useIsMobile from "@/hooks/useIsMobile";
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Link,
-  Typography,
-  type CardProps,
-} from "@mui/material";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { Anchor, Card, Image, SimpleGrid, Title } from "@mantine/core";
+import WhatsappIcon from "@/icons/WhatsappIcon";
 
-interface ContactCardProps extends CardProps {
+interface ContactCardProps {
   cardImage: string;
   cardHeading: string;
   cardSubHeading: string;
@@ -25,60 +18,56 @@ export default function ContactCard({
   const isMobile = useIsMobile();
 
   return (
-    <Card
-      elevation={3}
-      sx={{
-        height: isMobile ? "400px" : "200px",
-        display: "flex",
-        flexDirection: isMobile ? "column" : "",
-      }}
-    >
-      <CardMedia
-        component="img"
-        src={cardImage}
-        alt={cardImage}
-        sx={{
-          objectFit: "cover",
-          width: isMobile ? "100%" : "200px",
-          objectPosition: isMobile ? "center 10%" : "",
-          height: isMobile ? "256px" : "235px",
-        }}
-      />
+    <Card>
+      <SimpleGrid cols={{ base: 1, sm: 2 }}>
+        <Card.Section withBorder inheritPadding>
+          <Image
+            src={cardImage}
+            alt={cardImage}
+            style={{
+              objectFit: "cover",
+              objectPosition: isMobile ? "center 10%" : "",
+              width: isMobile ? "100%" : "auto",
+              height: isMobile ? "256px" : "100%",
+            }}
+          />
+        </Card.Section>
 
-      <CardContent>
-        <Typography
-          variant="h4"
-          sx={{
-            fontSize: isMobile ? "1.5rem" : "auto",
-            paddingBottom: "0.5em",
-          }}
-        >
-          {cardHeading}
-        </Typography>
-        <Typography variant="h6">{cardSubHeading}</Typography>
-        <Link
-          variant="body1"
-          href={`tel:${cardPhoneNum}`}
-          target="_blank"
-          rel="noopener"
-          sx={{
-            paddingBottom: "0.5em",
-          }}
-        >
-          {cardPhoneNum}
-        </Link>
-        <Link
-          variant="body1"
-          // href={`https://wa.me/${cardPhoneNum}`}
-          target="_blank"
-          rel="noopener"
-          sx={{
-            paddingLeft: "1em",
-          }}
-        >
-          <WhatsAppIcon />
-        </Link>
-      </CardContent>
+        <Card.Section withBorder inheritPadding>
+          <Title
+            order={4}
+            style={{
+              fontSize: isMobile ? "1.5rem" : "auto",
+              paddingBottom: "0.5em",
+            }}
+          >
+            {cardHeading}
+          </Title>
+          <Title order={6}>{cardSubHeading}</Title>
+          <Anchor
+            variant="body1"
+            href={`tel:${cardPhoneNum}`}
+            target="_blank"
+            rel="noopener"
+            style={{
+              paddingBottom: "0.5em",
+            }}
+          >
+            {cardPhoneNum}
+          </Anchor>
+          <Anchor
+            variant="body1"
+            // href={`https://wa.me/${cardPhoneNum}`}
+            target="_blank"
+            rel="noopener"
+            style={{
+              paddingLeft: "1em",
+            }}
+          >
+            <WhatsappIcon />
+          </Anchor>
+        </Card.Section>
+      </SimpleGrid>
     </Card>
   );
 }
