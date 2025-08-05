@@ -20,17 +20,21 @@ export default function ContactPage() {
       <Title
         order={1}
         p="1rem 0"
-        style={{ color: "#1D3557", margin: "1rem 0", textAlign: "left" }}
+        style={{
+          color: "#1D3557",
+          margin: "1rem 0",
+          textAlign: "left",
+          fontSize: isMobile ? "2rem" : "auto",
+        }}
       >
         Plan an Unforgettable Experience With Us Today!
       </Title>
-      <Title order={5} style={{ padding: "1em 0" }}>
+      <Title order={5} style={{ padding: "1rem 0" }}>
         We can help you fit your trip and experience within your allotted
         budget.
       </Title>
       <SimpleGrid
         cols={{ base: 1, sm: 2 }}
-        p={2}
         spacing={{ base: 10, sm: "xl" }}
         verticalSpacing={{ base: "xl" }}
         style={{ justifyItems: "center" }}
@@ -39,11 +43,7 @@ export default function ContactPage() {
           const slideClass =
             index % 2 === 0 ? "slide-in-left" : "slide-in-right";
           return (
-            <Box
-              key={index}
-              style={{ width: isMobile ? "250px" : "60%" }}
-              className={slideClass}
-            >
+            <Box key={index} className={slideClass} p="1rem">
               <ContactCard
                 cardImage={contact.image}
                 cardHeading={contact.name}

@@ -1,4 +1,3 @@
-import "@/App.css";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import About from "@/pages/About/AboutPage";
@@ -9,9 +8,7 @@ import ContactPage from "@/pages/Contact/ContactPage";
 function App() {
   return (
     <>
-      <div className="container">
-        <Header />
-      </div>
+      <Header />
       <About />
       <ServicesPage />
       <GalleryPage />

@@ -1,5 +1,5 @@
 import useIsMobile from "@/hooks/useIsMobile";
-import { Anchor, Card, Image, SimpleGrid, Title } from "@mantine/core";
+import { Anchor, Card, Grid, Image, Title } from "@mantine/core";
 import WhatsappIcon from "@/icons/WhatsappIcon";
 
 interface ContactCardProps {
@@ -18,32 +18,42 @@ export default function ContactCard({
   const isMobile = useIsMobile();
 
   return (
-    <Card>
-      <SimpleGrid cols={{ base: 1, sm: 2 }}>
-        <Card.Section withBorder inheritPadding>
+    <Card p={0} shadow="xl">
+      <Grid>
+        <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
           <Image
             src={cardImage}
             alt={cardImage}
             style={{
-              objectFit: "cover",
               objectPosition: isMobile ? "center 10%" : "",
-              width: isMobile ? "100%" : "auto",
-              height: isMobile ? "256px" : "100%",
+              height: isMobile ? "auto" : "100%",
             }}
           />
-        </Card.Section>
+        </Grid.Col>
 
-        <Card.Section withBorder inheritPadding>
+        <Grid.Col
+          span={{ base: 12, md: 6, lg: 6 }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: isMobile ? "center" : "auto",
+          }}
+          p="2rem"
+        >
           <Title
             order={4}
             style={{
               fontSize: isMobile ? "1.5rem" : "auto",
               paddingBottom: "0.5em",
+              color: "black",
             }}
           >
             {cardHeading}
           </Title>
-          <Title order={6}>{cardSubHeading}</Title>
+          <Title order={6} style={{ color: "black" }}>
+            {cardSubHeading}
+          </Title>
           <Anchor
             variant="body1"
             href={`tel:${cardPhoneNum}`}
@@ -66,8 +76,8 @@ export default function ContactCard({
           >
             <WhatsappIcon />
           </Anchor>
-        </Card.Section>
-      </SimpleGrid>
+        </Grid.Col>
+      </Grid>
     </Card>
   );
 }

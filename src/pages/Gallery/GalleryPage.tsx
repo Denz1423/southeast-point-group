@@ -17,16 +17,10 @@ export default function GalleryPage() {
         paddingBottom: isMobile ? "2rem" : "auto",
       }}
     >
-      <Title
-        order={1}
-        style={{ color: "#1D3557", margin: "1rem", textAlign: "center" }}
-      >
+      <Title order={1} style={{ margin: "1rem", textAlign: "center" }}>
         Gallery
       </Title>
-      <Title
-        order={5}
-        style={{ color: "#1D3557", padding: "1rem", textAlign: "center" }}
-      >
+      <Title order={4} style={{ padding: "1rem", textAlign: "center" }}>
         Peek into our trips!
       </Title>
 
@@ -51,7 +45,6 @@ export default function GalleryPage() {
                 alt={image}
                 style={{
                   objectFit: "cover",
-                  maxWidth: "100%",
                   height: isMobile ? "300px" : "500px",
                 }}
               />

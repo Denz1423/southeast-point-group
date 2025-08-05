@@ -13,7 +13,15 @@ export default function NavList() {
       gap={isMobile ? "lg" : "xl"}
     >
       {PageLinks.map((page) => (
-        <Anchor key={page.id} c="black" style={{ textDecoration: "none" }}>
+        <Anchor
+          key={page.id}
+          c="#1D3557"
+          style={{
+            textDecoration: "none",
+            fontFamily: "Quicksand, sans-serif",
+            fontWeight: 600,
+          }}
+        >
           {page.name}
         </Anchor>
       ))}

@@ -1,5 +1,6 @@
 import useIsMobile from "@/hooks/useIsMobile";
 import { Button, Card, Image, Title, Typography } from "@mantine/core";
+import { useHover } from "@mantine/hooks";
 
 interface ServiceCardProps {
   cardImage: string;
@@ -15,29 +16,31 @@ export default function ServicesCard({
   cardButtonLabel,
 }: ServiceCardProps) {
   const isMobile = useIsMobile();
+  const { hovered, ref } = useHover();
 
   return (
     <Card
+      ref={ref}
       style={{
         maxWidth: "100%",
         backgroundColor: "transparent",
         transition: "transform 0.3s ease-in-out",
-        ":hover": {
-          transform: "scale(1.02)",
-          boxShadow: "0 8px 16px rgba(0,0,0,0.2)",
-        },
+        transform: hovered ? "scale(1.02)" : "",
+        boxShadow: hovered ? "0 8px 16px rgba(0,0,0,0.2)" : "",
       }}
     >
       <Card.Section>
         <Image
           src={cardImage}
           alt={cardHeading}
-          style={{ height: isMobile ? "300px" : "500px" }}
+          style={{
+            height: isMobile ? "400px" : "600px",
+          }}
         />
       </Card.Section>
-      <Card.Section>
+      <Card.Section p={16}>
         <Title
-          order={2}
+          order={3}
           style={{
             padding: "1rem 0",
           }}
@@ -48,11 +51,7 @@ export default function ServicesCard({
           {cardBody}
         </Typography>
       </Card.Section>
-      <Card.Section
-        style={{
-          padding: "0.5rem 0",
-        }}
-      >
+      <Card.Section p={16}>
         <Button
           variant="transparent"
           size="sm"

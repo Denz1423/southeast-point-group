@@ -40,9 +40,8 @@ export default function About() {
       </Title>
       <SimpleGrid
         cols={{ base: 1, sm: 2 }}
-        spacing={{ base: "md", sm: "xl" }}
-        verticalSpacing={{ base: "md", sm: "xl" }}
-        p="1rem"
+        spacing={{ base: "sm", sm: 100 }}
+        verticalSpacing={{ base: 20 }}
         style={{ justifyItems: "center" }}
       >
         <Box className="firsthidden">
@@ -66,50 +65,32 @@ export default function About() {
           {isMobile ? (
             <>
               <Box p="3px">
-                <Typography
-                  variant="body1"
-                  style={{ color: "#2F6B3A" }}
-                  className="about-text"
-                >
-                  {about[0]}
-                </Typography>
+                <Typography>{about[0]}</Typography>
                 <br />
               </Box>
 
               {readMore &&
                 about.slice(1).map((text, index) => (
                   <Box key={index} p="3px">
-                    <Typography
-                      variant="body1"
-                      style={{ color: "#2F6B3A" }}
-                      className="about-text"
-                    >
-                      {text}
-                    </Typography>
+                    <Typography>{text}</Typography>
                     <br />
                   </Box>
                 ))}
 
-              <Box>
-                <Button
-                  variant="outline"
-                  onClick={toggleReadMore}
-                  style={{ color: "#5CA9E9", border: "none" }}
-                >
-                  {readMore ? "Read Less" : "Read More"}
-                </Button>
-              </Box>
+              <Button
+                variant="outline"
+                justify="center"
+                fullWidth
+                onClick={toggleReadMore}
+                style={{ color: "#5CA9E9", border: "none" }}
+              >
+                {readMore ? "Read Less" : "Read More"}
+              </Button>
             </>
           ) : (
             about.map((text, index) => (
               <Box key={index} p="3px">
-                <Typography
-                  variant="body1"
-                  style={{ color: "#2F6B3A" }}
-                  className="about-text"
-                >
-                  {text}
-                </Typography>
+                <Typography>{text}</Typography>
                 <br />
               </Box>
             ))

@@ -4,20 +4,19 @@
   padding: 0;
 }
 
-body {
+#root {
+  height: 100vh;
   overflow-x: hidden;
 }
 
-#root {
-  height: 100vh;
-  width: calc(100vw - 15px);
-}
-
 @media (max-width: 800px) {
-  #root {
-    width: calc(100vw);
-  }
   body::-webkit-scrollbar {
     display: none;
   }
 }
+
+/* #1D3557
+#2F6B3A
+#5CA9E9
+#F1FAEE
+#EED6B3 */
