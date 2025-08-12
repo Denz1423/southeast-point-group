@@ -12,9 +12,11 @@ export default function GalleryPage() {
     <Container
       fluid
       style={{
-        height: isMobile ? "auto" : "80%",
+        height: isMobile ? "inherit" : "100%",
         padding: isMobile ? "0" : "auto",
-        paddingBottom: isMobile ? "2rem" : "auto",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
       }}
     >
       <Title order={1} style={{ margin: "1rem", textAlign: "center" }}>
@@ -28,7 +30,7 @@ export default function GalleryPage() {
         <Carousel
           withControls
           withIndicators
-          slideSize="50%"
+          slideSize={{ base: '100%', sm: "50%"}}
           slideGap={{ base: "lg", sm: "xl" }}
           height="100%"
           flex={1}
@@ -45,7 +47,7 @@ export default function GalleryPage() {
                 alt={image}
                 style={{
                   objectFit: "cover",
-                  height: isMobile ? "300px" : "500px",
+                  height: isMobile ? "350px" : "500px",
                 }}
               />
             </CarouselSlide>
@@ -56,11 +58,7 @@ export default function GalleryPage() {
       <Box
         style={{ display: "flex", justifyContent: "flex-end", padding: "1rem" }}
       >
-        <Button
-          variant="transparent"
-          size="sm"
-          style={{ color: "#5CA9E9", padding: "0" }}
-        >
+        <Button variant="transparent" size="sm" style={{ padding: "0" }}>
           See More
         </Button>
       </Box>

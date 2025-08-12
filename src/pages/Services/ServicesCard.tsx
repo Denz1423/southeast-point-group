@@ -23,10 +23,13 @@ export default function ServicesCard({
       ref={ref}
       style={{
         maxWidth: "100%",
-        backgroundColor: "transparent",
+        // backgroundColor: "transparent",
         transition: "transform 0.3s ease-in-out",
         transform: hovered ? "scale(1.02)" : "",
-        boxShadow: hovered ? "0 8px 16px rgba(0,0,0,0.2)" : "",
+        // boxShadow: hovered ? "0 8px 16px rgba(0,0,0,0.2)" : "",
+        border: "2px solid",
+        borderColor: hovered ? "#CBA135" : "#D4AF37",
+        backgroundColor: "#1A1A1A",
       }}
     >
       <Card.Section>
@@ -47,7 +50,7 @@ export default function ServicesCard({
         >
           {cardHeading}
         </Title>
-        <Typography variant="body1" style={{ color: "#2F6B3A" }}>
+        <Typography variant="body1">
           {cardBody}
         </Typography>
       </Card.Section>
@@ -55,7 +58,7 @@ export default function ServicesCard({
         <Button
           variant="transparent"
           size="sm"
-          style={{ color: "#5CA9E9", padding: "0" }}
+          style={{ color: "#D4AF37", padding: "0" }}
         >
           {cardButtonLabel}
         </Button>

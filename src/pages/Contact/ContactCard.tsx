@@ -18,7 +18,7 @@ export default function ContactCard({
   const isMobile = useIsMobile();
 
   return (
-    <Card p={0} shadow="xl">
+    <Card p={0} shadow="xl" bg="#1A1A1A">
       <Grid>
         <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
           <Image
@@ -46,14 +46,11 @@ export default function ContactCard({
             style={{
               fontSize: isMobile ? "1.5rem" : "auto",
               paddingBottom: "0.5em",
-              color: "black",
             }}
           >
             {cardHeading}
           </Title>
-          <Title order={6} style={{ color: "black" }}>
-            {cardSubHeading}
-          </Title>
+          <Title order={6}>{cardSubHeading}</Title>
           <Anchor
             variant="body1"
             href={`tel:${cardPhoneNum}`}
@@ -74,7 +71,7 @@ export default function ContactCard({
               paddingLeft: "1em",
             }}
           >
-            <WhatsappIcon />
+            <WhatsappIcon color="#D4AF37" />
           </Anchor>
         </Grid.Col>
       </Grid>

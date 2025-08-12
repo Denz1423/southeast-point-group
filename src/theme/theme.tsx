@@ -1,9 +1,9 @@
 import { createTheme } from "@mantine/core";
 
 const theme = createTheme({
-  fontFamily: "Open Sans, sans-serif",
+  fontFamily: "DM Sans, sans-serif",
   headings: {
-    fontFamily: "Quicksand, sans-serif",
+    fontFamily: "Cormorant Garamond, serif",
     sizes: {
       h1: { fontSize: "3rem" },
     },
@@ -12,14 +12,31 @@ const theme = createTheme({
     Title: {
       styles: () => ({
         root: {
-          color: "#1D3557",
+          color: "#F5F5F5",
         },
       }),
     },
     Typography: {
       styles: () => ({
         root: {
-          color: "#2F6B3A",
+          color: "#D6D6D6",
+        },
+      }),
+    },
+    Anchor: {
+      styles: () => ({
+        root: {
+          textDecoration: "none",
+          fontFamily: "DM Sans, sans-serif",
+          fontWeight: 600,
+          color: "#D4AF37",
+        },
+      }),
+    },
+    Button: {
+      styles: () => ({
+        root: {
+          color: "#D4AF37",
         },
       }),
     },

@@ -13,7 +13,7 @@ export default function Nav() {
         variant="transparent"
         onClick={open}
         display={{ xs: "flex", sm: "none" }}
-        color="#1D3557"
+        c="#0d0d0d"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ export default function Nav() {
         display={{ xs: "inherit", sm: "none" }}
         styles={{
           content: {
-            backgroundColor: "#F1FAEE",
+            backgroundColor: "#0d0d0d",
             padding: "1rem",
           },
         }}
@@ -50,12 +50,11 @@ export default function Nav() {
           display="flex"
           p={2}
           style={{
-            display: "flex",
             justifyContent: "flex-end",
           }}
         >
           <Button variant="transparent" onClick={close} size="md">
-            <CloseIcon style={{ color: "#1D3557" }} />
+            <CloseIcon style={{ color: "#F5F5F5" }} />
           </Button>
         </Box>
         <NavList />

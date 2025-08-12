@@ -12,9 +12,9 @@ interface SocialRowProps {
 }
 
 const iconMap: Record<string, JSX.Element> = {
-  email: <EmailIcon fontSize="large" sx={{ color: "#5CA9E9" }} />,
-  facebook: <FacebookIcon fontSize="large" sx={{ color: "#5CA9E9" }} />,
-  instagram: <InstagramIcon fontSize="large" sx={{ color: "#5CA9E9" }} />,
+  email: <EmailIcon fontSize="large" color="#D4AF37" />,
+  facebook: <FacebookIcon fontSize="large" color="#D4AF37" />,
+  instagram: <InstagramIcon fontSize="large" color="#D4AF37" />,
 };
 
 export default function SocialRow({ iconName, label, link }: SocialRowProps) {
@@ -31,9 +31,6 @@ export default function SocialRow({ iconName, label, link }: SocialRowProps) {
         display: "flex",
         alignItems: "center",
         padding: isMobile ? "0.5rem" : "0.5rem 1rem",
-        "&:hover": {
-          textDecorationColor: "#5CA9E9",
-        },
       }}
     >
       {IconComponent ?? null}
@@ -42,7 +39,7 @@ export default function SocialRow({ iconName, label, link }: SocialRowProps) {
         style={{
           fontSize: isMobile ? "1rem" : "20px",
           padding: isMobile ? "0.5rem" : "0 1rem",
-          color: "#5CA9E9",
+          color: "#D4AF37",
         }}
       >
         {label}

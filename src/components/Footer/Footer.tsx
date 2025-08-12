@@ -5,8 +5,8 @@ export default function Footer() {
   const currentYear = date.getFullYear();
 
   return (
-    <Container fluid style={{ backgroundColor: "#F1FAEE", padding: "0" }}>
-      <Divider />
+    <Container fluid style={{ padding: "0" }}>
+      <Divider my="sm" />
       <Box
         style={{
           display: "flex",
@@ -26,14 +26,18 @@ export default function Footer() {
           strokeLinecap="round"
           strokeLinejoin="round"
           className="icon icon-tabler icons-tabler-outline icon-tabler-copyright"
-          style={{ color: "#2F6B3A" }}
+          style={{ color: "#F8F4E3" }}
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
           <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
           <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173" />
         </svg>
         <Typography
-          style={{ fontSize: "16px", padding: "0 0.5rem", color: "#2F6B3A" }}
+          style={{
+            fontSize: "1rem",
+            padding: "0 0.5rem",
+            color: "#F8F4E3",
+          }}
         >
           {currentYear} SouthEast Point Group
         </Typography>

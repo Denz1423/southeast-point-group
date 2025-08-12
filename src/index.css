@@ -7,6 +7,7 @@
 #root {
   height: 100vh;
   overflow-x: hidden;
+  background-color: #0d0d0d;
 }
 
 @media (max-width: 800px) {
@@ -14,9 +15,3 @@
     display: none;
   }
 }
-
-/* #1D3557
-#2F6B3A
-#5CA9E9
-#F1FAEE
-#EED6B3 */

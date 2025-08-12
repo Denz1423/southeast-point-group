@@ -24,11 +24,7 @@ export default function About() {
   };
 
   return (
-    <Container
-      style={{
-        justifyItems: "center",
-      }}
-    >
+    <Container>
       <Title
         order={1}
         p="1rem"
@@ -56,10 +52,7 @@ export default function About() {
         </Box>
 
         <Box className="secondhidden">
-          <Title
-            order={2}
-            style={{ margin: "5px", color: "#2F6B3A", textAlign: "center" }}
-          >
+          <Title order={2} style={{ margin: "8px", textAlign: "center" }}>
             Transporting is caring
           </Title>
           {isMobile ? (
@@ -82,7 +75,7 @@ export default function About() {
                 justify="center"
                 fullWidth
                 onClick={toggleReadMore}
-                style={{ color: "#5CA9E9", border: "none" }}
+                style={{ border: "none" }}
               >
                 {readMore ? "Read Less" : "Read More"}
               </Button>

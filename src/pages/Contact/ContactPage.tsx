@@ -11,17 +11,11 @@ export default function ContactPage() {
   useRevealOnScroll([".slide-in-left", ".slide-in-right"]);
 
   return (
-    <Container
-      fluid
-      style={{
-        backgroundColor: "#F1FAEE",
-      }}
-    >
+    <Container fluid>
       <Title
         order={1}
         p="1rem 0"
         style={{
-          color: "#1D3557",
           margin: "1rem 0",
           textAlign: "left",
           fontSize: isMobile ? "2rem" : "auto",

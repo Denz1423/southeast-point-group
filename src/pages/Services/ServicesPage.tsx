@@ -7,7 +7,7 @@ export default function ServicesPage() {
     <Container
       fluid
       style={{
-        backgroundColor: "#F1FAEE",
+        // backgroundColor: "#0b0b0b",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
