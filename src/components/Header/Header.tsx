@@ -1,6 +1,5 @@
 import SEPG from "/SEPG.svg";
 import operaHouse from "@/assets/opera-house.avif";
-import "@/components/Header/Header.css";
 import Nav from "@/components/Navigation/Nav";
 import { AppBar, Box, Stack } from "@mui/material";
 import Fade from "@mui/material/Fade";
