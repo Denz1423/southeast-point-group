@@ -1,14 +1,15 @@
-import { Box, Container, Divider, Typography } from "@mantine/core";
+import { Box, Typography } from "@mui/material";
+import Divider from "@mui/material/Divider";
 
 export default function Footer() {
   const date = new Date();
   const currentYear = date.getFullYear();
 
   return (
-    <Container fluid style={{ padding: "0" }}>
-      <Divider my="sm" />
+    <Box>
+      <Divider />
       <Box
-        style={{
+        sx={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -33,7 +34,7 @@ export default function Footer() {
           <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173" />
         </svg>
         <Typography
-          style={{
+          sx={{
             fontSize: "1rem",
             padding: "0 0.5rem",
             color: "#F8F4E3",
@@ -42,6 +43,6 @@ export default function Footer() {
           {currentYear} SouthEast Point Group
         </Typography>
       </Box>
-    </Container>
+    </Box>
   );
 }

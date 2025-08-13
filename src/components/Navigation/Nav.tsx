@@ -1,61 +1,45 @@
 import NavList from "@/components/Navigation/NavList";
 import useIsMobile from "@/hooks/useIsMobile";
-import { Box, Button, CloseIcon, Drawer } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { Box, Drawer, IconButton } from "@mui/material";
+import { useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export default function Nav() {
-  const [opened, { open, close }] = useDisclosure(false);
+  const [open, setOpen] = useState(false);
   const isMobile = useIsMobile();
+
+  const toggleDrawer = (state: boolean) => () => {
+    setOpen(state);
+  };
 
   return (
     <>
-      <Button
-        variant="transparent"
-        onClick={open}
-        display={{ xs: "flex", sm: "none" }}
-        c="#0d0d0d"
+      <IconButton
+        onClick={toggleDrawer(true)}
+        sx={{
+          display: { xs: "flex", sm: "none" },
+          color: "#0d0d0d",
+        }}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M4 6l16 0" />
-          <path d="M4 12l16 0" />
-          <path d="M4 18l16 0" />
-        </svg>
-      </Button>
+        <MenuIcon />
+      </IconButton>
       <Drawer
-        opened={opened}
-        onClose={close}
-        withCloseButton={false}
-        position="right"
-        display={{ xs: "inherit", sm: "none" }}
-        styles={{
-          content: {
+        anchor="right"
+        open={open}
+        onClose={toggleDrawer(false)}
+        sx={{
+          display: { xs: "block", sm: "none" },
+          "& .MuiDrawer-paper": {
             backgroundColor: "#0d0d0d",
-            padding: "1rem",
+            width: "100%",
           },
         }}
       >
-        <Box
-          display="flex"
-          p={2}
-          style={{
-            justifyContent: "flex-end",
-          }}
-        >
-          <Button variant="transparent" onClick={close} size="md">
+        <Box display="flex" p={2} justifyContent="flex-end">
+          <IconButton onClick={toggleDrawer(false)}>
             <CloseIcon style={{ color: "#F5F5F5" }} />
-          </Button>
+          </IconButton>
         </Box>
         <NavList />
       </Drawer>

@@ -1,45 +1,34 @@
-import { createTheme } from "@mantine/core";
+import { createTheme, type ThemeOptions } from "@mui/material/styles";
 
-const theme = createTheme({
-  fontFamily: "DM Sans, sans-serif",
-  headings: {
-    fontFamily: "Cormorant Garamond, serif",
-    sizes: {
-      h1: { fontSize: "3rem" },
+export const theme: ThemeOptions = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#D4AF37",
     },
+    secondary: {
+      main: "#CBA135",
+    },
+    background: {
+      default: "#0d0d0d",
+      paper: "#1a1a1a",
+    },
+    text: {
+      primary: "#F8F4E3",
+    },
+    divider: "#8B7E74",
   },
-  components: {
-    Title: {
-      styles: () => ({
-        root: {
-          color: "#F5F5F5",
-        },
-      }),
+  typography: {
+    fontFamily: `"DM Sans", sans-serif`,
+    body1: {
+      color: "#F8F4E3",
     },
-    Typography: {
-      styles: () => ({
-        root: {
-          color: "#D6D6D6",
-        },
-      }),
-    },
-    Anchor: {
-      styles: () => ({
-        root: {
-          textDecoration: "none",
-          fontFamily: "DM Sans, sans-serif",
-          fontWeight: 600,
-          color: "#D4AF37",
-        },
-      }),
-    },
-    Button: {
-      styles: () => ({
-        root: {
-          color: "#D4AF37",
-        },
-      }),
-    },
+    h1: { fontFamily: `"Cormorant Garamond", serif` },
+    h2: { fontFamily: `"Cormorant Garamond", serif` },
+    h3: { fontFamily: `"Cormorant Garamond", serif` },
+    h4: { fontFamily: `"Cormorant Garamond", serif` },
+    h5: { fontFamily: `"Cormorant Garamond", serif` },
+    h6: { fontFamily: `"Cormorant Garamond", serif` },
   },
 });
 

@@ -7,7 +7,6 @@
 #root {
   height: 100vh;
   overflow-x: hidden;
-  background-color: #0d0d0d;
 }
 
 @media (max-width: 800px) {

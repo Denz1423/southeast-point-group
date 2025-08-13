@@ -1,9 +1,9 @@
 import type { JSX } from "react";
-import { Anchor, Typography } from "@mantine/core";
 import useIsMobile from "@/hooks/useIsMobile";
 import EmailIcon from "@/icons/EmailIcon";
 import FacebookIcon from "@/icons/FacebookIcon";
 import InstagramIcon from "@/icons/InstagramIcon";
+import { Link, Typography } from "@mui/material";
 
 interface SocialRowProps {
   iconName: string;
@@ -22,7 +22,7 @@ export default function SocialRow({ iconName, label, link }: SocialRowProps) {
   const IconComponent = iconMap[iconName];
 
   return (
-    <Anchor
+    <Link
       href={link}
       target="_blank"
       rel="noopener"
@@ -44,6 +44,6 @@ export default function SocialRow({ iconName, label, link }: SocialRowProps) {
       >
         {label}
       </Typography>
-    </Anchor>
+    </Link>
   );
 }

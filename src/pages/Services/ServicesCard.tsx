@@ -1,6 +1,11 @@
 import useIsMobile from "@/hooks/useIsMobile";
-import { Button, Card, Image, Title, Typography } from "@mantine/core";
-import { useHover } from "@mantine/hooks";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 
 interface ServiceCardProps {
   cardImage: string;
@@ -16,53 +21,43 @@ export default function ServicesCard({
   cardButtonLabel,
 }: ServiceCardProps) {
   const isMobile = useIsMobile();
-  const { hovered, ref } = useHover();
 
   return (
     <Card
-      ref={ref}
-      style={{
-        maxWidth: "100%",
-        // backgroundColor: "transparent",
+      sx={{
         transition: "transform 0.3s ease-in-out",
-        transform: hovered ? "scale(1.02)" : "",
-        // boxShadow: hovered ? "0 8px 16px rgba(0,0,0,0.2)" : "",
         border: "2px solid",
-        borderColor: hovered ? "#CBA135" : "#D4AF37",
+        borderColor: "#D4AF37",
         backgroundColor: "#1A1A1A",
+        "&:hover": {
+          transform: "scale(1.02)",
+        },
       }}
     >
-      <Card.Section>
-        <Image
-          src={cardImage}
-          alt={cardHeading}
-          style={{
-            height: isMobile ? "400px" : "600px",
-          }}
-        />
-      </Card.Section>
-      <Card.Section p={16}>
-        <Title
+      <CardMedia
+        image={cardImage}
+        title={cardHeading}
+        sx={{
+          height: isMobile ? "400px" : "500px",
+        }}
+      />
+
+      <CardContent>
+        <Typography
           order={3}
           style={{
             padding: "1rem 0",
           }}
         >
           {cardHeading}
-        </Title>
-        <Typography variant="body1">
-          {cardBody}
         </Typography>
-      </Card.Section>
-      <Card.Section p={16}>
-        <Button
-          variant="transparent"
-          size="sm"
-          style={{ color: "#D4AF37", padding: "0" }}
-        >
+        <Typography variant="body1">{cardBody}</Typography>
+      </CardContent>
+      <CardContent>
+        <Button sx={{ color: "#D4AF37", padding: "0" }}>
           {cardButtonLabel}
         </Button>
-      </Card.Section>
+      </CardContent>
     </Card>
   );
 }

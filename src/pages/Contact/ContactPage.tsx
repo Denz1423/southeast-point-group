@@ -4,17 +4,18 @@ import SocialRow from "@/pages/Contact/SocialRow";
 import useIsMobile from "@/hooks/useIsMobile";
 import useRevealOnScroll from "@/hooks/useRevealOnScroll";
 import "@/pages/Contact/Contact.css";
-import { Box, Container, SimpleGrid, Title } from "@mantine/core";
+import { Box, Stack, Typography } from "@mui/material";
 
 export default function ContactPage() {
   const isMobile = useIsMobile();
+  const contactStackDirection = isMobile ? "column" : "row";
   useRevealOnScroll([".slide-in-left", ".slide-in-right"]);
 
   return (
-    <Container fluid>
-      <Title
-        order={1}
-        p="1rem 0"
+    <Box>
+      <Typography
+        variant="h3"
+        p="1rem"
         style={{
           margin: "1rem 0",
           textAlign: "left",
@@ -22,17 +23,12 @@ export default function ContactPage() {
         }}
       >
         Plan an Unforgettable Experience With Us Today!
-      </Title>
-      <Title order={5} style={{ padding: "1rem 0" }}>
+      </Typography>
+      <Typography variant="h5" style={{ padding: "1rem" }}>
         We can help you fit your trip and experience within your allotted
         budget.
-      </Title>
-      <SimpleGrid
-        cols={{ base: 1, sm: 2 }}
-        spacing={{ base: 10, sm: "xl" }}
-        verticalSpacing={{ base: "xl" }}
-        style={{ justifyItems: "center" }}
-      >
+      </Typography>
+      <Stack direction={contactStackDirection} justifyContent="space-around">
         {contactData.map((contact, index) => {
           const slideClass =
             index % 2 === 0 ? "slide-in-left" : "slide-in-right";
@@ -47,7 +43,7 @@ export default function ContactPage() {
             </Box>
           );
         })}
-      </SimpleGrid>
+      </Stack>
       <Box style={{ width: "fit-content", padding: "1rem 0" }}>
         {socialData.map((social, index) => (
           <SocialRow
@@ -58,6 +54,6 @@ export default function ContactPage() {
           />
         ))}
       </Box>
-    </Container>
+    </Box>
   );
 }

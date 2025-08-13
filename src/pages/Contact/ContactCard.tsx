@@ -1,6 +1,6 @@
 import useIsMobile from "@/hooks/useIsMobile";
-import { Anchor, Card, Grid, Image, Title } from "@mantine/core";
 import WhatsappIcon from "@/icons/WhatsappIcon";
+import { Card, Link, Stack, Typography } from "@mui/material";
 
 interface ContactCardProps {
   cardImage: string;
@@ -16,42 +16,35 @@ export default function ContactCard({
   cardPhoneNum,
 }: ContactCardProps) {
   const isMobile = useIsMobile();
+  const contactCardDirection = isMobile ? "column" : "row";
 
   return (
-    <Card p={0} shadow="xl" bg="#1A1A1A">
-      <Grid>
-        <Grid.Col span={{ base: 12, md: 6, lg: 6 }}>
-          <Image
-            src={cardImage}
-            alt={cardImage}
-            style={{
-              objectPosition: isMobile ? "center 10%" : "",
-              height: isMobile ? "auto" : "100%",
-            }}
-          />
-        </Grid.Col>
-
-        <Grid.Col
-          span={{ base: 12, md: 6, lg: 6 }}
+    <Card sx={{ backgroundColor: "#1A1A1A", width: "400px" }}>
+      <Stack direction={contactCardDirection}>
+        <img
+          src={cardImage}
+          alt={cardImage}
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: isMobile ? "center" : "auto",
+            objectPosition: isMobile ? "center 10%" : "",
           }}
-          p="2rem"
+        />
+        <Stack
+          flex={1}
+          justifyContent="center"
+          alignItems="center"
+          padding="0.5em"
         >
-          <Title
-            order={4}
+          <Typography
+            variant="h4"
             style={{
               fontSize: isMobile ? "1.5rem" : "auto",
               paddingBottom: "0.5em",
             }}
           >
             {cardHeading}
-          </Title>
-          <Title order={6}>{cardSubHeading}</Title>
-          <Anchor
+          </Typography>
+          <Typography variant="h6">{cardSubHeading}</Typography>
+          <Link
             variant="body1"
             href={`tel:${cardPhoneNum}`}
             target="_blank"
@@ -61,8 +54,8 @@ export default function ContactCard({
             }}
           >
             {cardPhoneNum}
-          </Anchor>
-          <Anchor
+          </Link>
+          <Link
             variant="body1"
             // href={`https://wa.me/${cardPhoneNum}`}
             target="_blank"
@@ -72,9 +65,9 @@ export default function ContactCard({
             }}
           >
             <WhatsappIcon color="#D4AF37" />
-          </Anchor>
-        </Grid.Col>
-      </Grid>
+          </Link>
+        </Stack>
+      </Stack>
     </Card>
   );
 }

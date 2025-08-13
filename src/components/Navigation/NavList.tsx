@@ -1,22 +1,27 @@
 import { PageLinks } from "@/components/Navigation/NavData";
 import useIsMobile from "@/hooks/useIsMobile";
-import { Anchor, Group, Stack } from "@mantine/core";
+import { Link, Stack } from "@mui/material";
 
 export default function NavList() {
   const isMobile = useIsMobile();
-  const NavLinkContainer = isMobile ? Stack : Group;
+  const NavLinkDirection = isMobile ? "column" : "row";
 
   return (
-    <NavLinkContainer
-      justify="center"
-      align="center"
-      gap={isMobile ? "lg" : "xl"}
-    >
+    <Stack direction={NavLinkDirection} spacing={{ xs: 3, sm: 3, md: 5 }}>
       {PageLinks.map((page) => (
-        <Anchor key={page.id} c={isMobile ? "#D6D6D6" : "inherit"}>
+        <Link
+          key={page.id}
+          color={isMobile ? "#D6D6D6" : "#0d0d0d"}
+          underline="none"
+          align="center"
+          fontWeight={600}
+          sx={{
+            cursor: "pointer",
+          }}
+        >
           {page.name}
-        </Anchor>
+        </Link>
       ))}
-    </NavLinkContainer>
+    </Stack>
   );
 }

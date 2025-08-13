@@ -1,34 +1,27 @@
 import { servicesData } from "@/pages/Services/ServicesData";
 import ServicesCard from "@/pages/Services/ServicesCard";
-import { Container, SimpleGrid, Title } from "@mantine/core";
+import { Box, Grid, Typography } from "@mui/material";
 
 export default function ServicesPage() {
   return (
-    <Container
-      fluid
-      style={{
-        // backgroundColor: "#0b0b0b",
+    <Box
+      sx={{
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        alignItems: "center",
       }}
     >
-      <Title
-        order={1}
+      <Typography
+        variant="h3"
         p="1rem"
         style={{
           textAlign: "center",
         }}
       >
         What We Offer
-      </Title>
-      <SimpleGrid
-        cols={{ base: 1, sm: 3 }}
-        spacing={{ base: "md", sm: "xl" }}
-        verticalSpacing={{ base: "md", sm: "xl" }}
-        p="1rem"
-        m="1rem"
-      >
+      </Typography>
+      <Grid container spacing={4} size={{ xs: 12, sm: 4 }} p="1rem" m="1rem">
         {servicesData.map((service) => {
           return (
             <ServicesCard
@@ -40,7 +33,7 @@ export default function ServicesPage() {
             />
           );
         })}
-      </SimpleGrid>
-    </Container>
+      </Grid>
+    </Box>
   );
 }

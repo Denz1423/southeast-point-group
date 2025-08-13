@@ -1,18 +1,10 @@
 import "@/pages/About/About.css";
-import {
-  Button,
-  Box,
-  Title,
-  Typography,
-  Container,
-  SimpleGrid,
-  Image,
-} from "@mantine/core";
 import aboutPic from "@/assets/about-pic.avif";
 import about from "@/pages/About/AboutData";
 import useRevealOnScroll from "@/hooks/useRevealOnScroll";
 import useIsMobile from "@/hooks/useIsMobile";
 import { useState } from "react";
+import { Box, Button, Grid, Typography } from "@mui/material";
 
 export default function About() {
   useRevealOnScroll([".firsthidden", ".secondhidden"]);
@@ -24,72 +16,68 @@ export default function About() {
   };
 
   return (
-    <Container>
-      <Title
-        order={1}
+    <Box p="3rem" mb={10}>
+      <Typography
+        variant="h3"
         p="1rem"
         style={{
           textAlign: "center",
         }}
       >
         About Us
-      </Title>
-      <SimpleGrid
-        cols={{ base: 1, sm: 2 }}
-        spacing={{ base: "sm", sm: 100 }}
-        verticalSpacing={{ base: 20 }}
-        style={{ justifyItems: "center" }}
-      >
-        <Box className="firsthidden">
-          <Image
-            src={aboutPic}
-            alt="about-pic"
-            style={{
-              maxWidth: "100%",
-              height: isMobile ? "350px" : "auto",
-            }}
-          />
-        </Box>
+      </Typography>
+      <Grid container spacing={4}>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <Box className="firsthidden" display="flex" justifyContent="center">
+            <img
+              src={aboutPic}
+              alt="about-pic"
+              style={{
+                maxWidth: "100%",
+                height: isMobile ? "400px" : "auto",
+              }}
+            />
+          </Box>
+        </Grid>
 
-        <Box className="secondhidden">
-          <Title order={2} style={{ margin: "8px", textAlign: "center" }}>
-            Transporting is caring
-          </Title>
-          {isMobile ? (
-            <>
-              <Box p="3px">
-                <Typography>{about[0]}</Typography>
-                <br />
-              </Box>
+        <Grid size={{ xs: 12, md: 6 }}>
+          <Box className="secondhidden">
+            <Typography
+              variant="h4"
+              style={{ margin: "8px", textAlign: "center" }}
+            >
+              Transporting is caring
+            </Typography>
+            {isMobile ? (
+              <>
+                <Box p="3px">
+                  <Typography variant="body1">{about[0]}</Typography>
+                  <br />
+                </Box>
 
-              {readMore &&
-                about.slice(1).map((text, index) => (
-                  <Box key={index} p="3px">
-                    <Typography>{text}</Typography>
-                    <br />
-                  </Box>
-                ))}
+                {readMore &&
+                  about.slice(1).map((text, index) => (
+                    <Box key={index} p="3px">
+                      <Typography variant="body1">{text}</Typography>
+                      <br />
+                    </Box>
+                  ))}
 
-              <Button
-                variant="outline"
-                justify="center"
-                fullWidth
-                onClick={toggleReadMore}
-                style={{ border: "none" }}
-              >
-                {readMore ? "Read Less" : "Read More"}
-              </Button>
-            </>
-          ) : (
-            about.map((text, index) => (
-              <Box key={index} p="3px">
-                <Typography>{text}</Typography>
-                <br />
-              </Box>
-            ))
-          )}
-        </Box>
-      </SimpleGrid>
-    </Container>
+                <Button fullWidth onClick={toggleReadMore}>
+                  {readMore ? "Read Less" : "Read More"}
+                </Button>
+              </>
+            ) : (
+              about.map((text, index) => (
+                <Box key={index} p="3px">
+                  <Typography variant="body1">{text}</Typography>
+                  <br />
+                </Box>
+              ))
+            )}
+          </Box>
+        </Grid>
+      </Grid>
+    </Box>
   );
 }
