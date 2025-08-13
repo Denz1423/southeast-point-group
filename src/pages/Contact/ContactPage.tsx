@@ -28,7 +28,7 @@ export default function ContactPage() {
         We can help you fit your trip and experience within your allotted
         budget.
       </Typography>
-      <Stack direction={contactStackDirection} justifyContent="space-around">
+      <Stack direction={contactStackDirection} justifyContent="space-around" alignItems="center">
         {contactData.map((contact, index) => {
           const slideClass =
             index % 2 === 0 ? "slide-in-left" : "slide-in-right";

@@ -19,7 +19,9 @@ export default function ContactCard({
   const contactCardDirection = isMobile ? "column" : "row";
 
   return (
-    <Card sx={{ backgroundColor: "#1A1A1A", width: "400px" }}>
+    <Card
+      sx={{ backgroundColor: "#1A1A1A", width: isMobile ? "300px" : "400px" }}
+    >
       <Stack direction={contactCardDirection}>
         <img
           src={cardImage}

@@ -21,7 +21,7 @@ export const theme: ThemeOptions = createTheme({
   typography: {
     fontFamily: `"DM Sans", sans-serif`,
     body1: {
-      color: "#F8F4E3",
+      color: "#FFFFFF",
     },
     h1: { fontFamily: `"Cormorant Garamond", serif` },
     h2: { fontFamily: `"Cormorant Garamond", serif` },

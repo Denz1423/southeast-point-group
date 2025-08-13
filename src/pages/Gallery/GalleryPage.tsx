@@ -10,7 +10,7 @@ export default function GalleryPage() {
   const isMobile = useIsMobile();
 
   const carouselSettings = {
-    dots: true,
+    dots: isMobile ? true : false,
     infinite: true,
     speed: 500,
     slidesToShow: isMobile ? 1 : 3,
