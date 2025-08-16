@@ -19,7 +19,7 @@ export default function Nav() {
         onClick={toggleDrawer(true)}
         sx={{
           display: { xs: "flex", sm: "none" },
-          color: "#0d0d0d",
+          color: "#FFFFFF",
         }}
       >
         <MenuIcon />

@@ -11,7 +11,7 @@ export default function NavList() {
       {PageLinks.map((page) => (
         <Link
           key={page.id}
-          color={isMobile ? "#D6D6D6" : "#0d0d0d"}
+          color={isMobile ? "#D6D6D6" : "#FFFFFF"}
           underline="none"
           align="center"
           fontWeight={600}
