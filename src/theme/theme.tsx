@@ -30,6 +30,18 @@ export const theme: ThemeOptions = createTheme({
     h5: { fontFamily: `"Cormorant Garamond", serif` },
     h6: { fontFamily: `"Cormorant Garamond", serif` },
   },
+  components: {
+    MuiLink: {
+      styleOverrides: {
+        root: {
+          textDecoration: "none",
+          "&:hover": {
+            color: "#CBA135",
+          },
+        },
+      },
+    },
+  },
 });
 
 export default theme;

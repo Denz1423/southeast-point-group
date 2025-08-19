@@ -38,10 +38,8 @@ export default function ContactCard({
         >
           <Typography
             variant="h4"
-            style={{
-              fontSize: isMobile ? "1.5rem" : "auto",
-              paddingBottom: "0.5em",
-            }}
+            fontSize={isMobile ? "1.5rem" : "auto"}
+            paddingBottom="0.5em"
           >
             {cardHeading}
           </Typography>
@@ -51,9 +49,7 @@ export default function ContactCard({
             href={`tel:${cardPhoneNum}`}
             target="_blank"
             rel="noopener"
-            style={{
-              paddingBottom: "0.5em",
-            }}
+            paddingBottom="0.5em"
           >
             {cardPhoneNum}
           </Link>
@@ -62,9 +58,7 @@ export default function ContactCard({
             // href={`https://wa.me/${cardPhoneNum}`}
             target="_blank"
             rel="noopener"
-            style={{
-              paddingLeft: "1em",
-            }}
+            paddingLeft="1em"
           >
             <WhatsappIcon color="#D4AF37" />
           </Link>

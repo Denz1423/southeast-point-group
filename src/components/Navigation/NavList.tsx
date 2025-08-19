@@ -12,7 +12,6 @@ export default function NavList() {
         <Link
           key={page.id}
           color={isMobile ? "#D6D6D6" : "#FFFFFF"}
-          underline="none"
           align="center"
           fontWeight={600}
           sx={{

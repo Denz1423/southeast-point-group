@@ -19,24 +19,22 @@ export default function GalleryPage() {
 
   return (
     <Box
-      sx={{
-        height: isMobile ? "inherit" : "100%",
-        padding: isMobile ? "0" : "auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        width: "100%",
-      }}
+      height={isMobile ? "inherit" : "100%"}
+      padding={isMobile ? "0" : "auto"}
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      width="100%"
     >
-      <Typography variant="h3" sx={{ margin: "1rem", textAlign: "center" }}>
+      <Typography variant="h3" margin="1rem" textAlign="center">
         Gallery
       </Typography>
-      <Typography variant="h5" sx={{ padding: "1rem", textAlign: "center" }}>
+      <Typography variant="h5" padding="1rem" textAlign="center">
         Peek into our trips!
       </Typography>
 
-      <Box display={"flex"} justifyContent="center">
-        <Box sx={{ width: "90%", padding: "0 1rem" }}>
+      <Box display="flex" justifyContent="center">
+        <Box width="90%" padding="0 1rem">
           <Slider {...carouselSettings}>
             {galleryImages.map((image, i) => (
               <Box key={`g${i}`}>
@@ -55,10 +53,8 @@ export default function GalleryPage() {
         </Box>
       </Box>
 
-      <Box
-        sx={{ display: "flex", justifyContent: "flex-end", padding: "1rem" }}
-      >
-        <Button sx={{ padding: "0" }}>See More</Button>
+      <Box display="flex" justifyContent="flex-end" padding="1rem">
+        <Button>See More</Button>
       </Box>
     </Box>
   );

@@ -16,24 +16,26 @@ export default function ContactPage() {
       <Typography
         variant="h3"
         p="1rem"
-        style={{
-          margin: "1rem 0",
-          textAlign: "left",
-          fontSize: isMobile ? "2rem" : "auto",
-        }}
+        margin="1rem 0"
+        textAlign="left"
+        fontSize={isMobile ? "2rem" : "auto"}
       >
         Plan an Unforgettable Experience With Us Today!
       </Typography>
-      <Typography variant="h5" style={{ padding: "1rem" }}>
+      <Typography variant="h5" padding="1rem">
         We can help you fit your trip and experience within your allotted
         budget.
       </Typography>
-      <Stack direction={contactStackDirection} justifyContent="space-around" alignItems="center">
+      <Stack
+        direction={contactStackDirection}
+        justifyContent="space-around"
+        alignItems="center"
+      >
         {contactData.map((contact, index) => {
           const slideClass =
             index % 2 === 0 ? "slide-in-left" : "slide-in-right";
           return (
-            <Box key={index} className={slideClass} p="1rem">
+            <Box key={index} className={slideClass} padding="1rem">
               <ContactCard
                 cardImage={contact.image}
                 cardHeading={contact.name}
@@ -44,7 +46,7 @@ export default function ContactPage() {
           );
         })}
       </Stack>
-      <Box style={{ width: "fit-content", padding: "1rem 0" }}>
+      <Box width="fit-content" padding="1rem 0">
         {socialData.map((social, index) => (
           <SocialRow
             key={index}

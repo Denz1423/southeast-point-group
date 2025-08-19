@@ -27,20 +27,16 @@ export default function SocialRow({ iconName, label, link }: SocialRowProps) {
       target="_blank"
       rel="noopener"
       underline="hover"
-      style={{
-        display: "flex",
-        alignItems: "center",
-        padding: isMobile ? "0.5rem" : "0.5rem 1rem",
-      }}
+      display="flex"
+      alignItems="center"
+      padding={isMobile ? "0.5rem" : "0.5rem 1rem"}
     >
       {IconComponent ?? null}
       <Typography
         variant="body1"
-        style={{
-          fontSize: isMobile ? "1rem" : "20px",
-          padding: isMobile ? "0.5rem" : "0 1rem",
-          color: "#D4AF37",
-        }}
+        fontSize={isMobile ? "1rem" : "20px"}
+        padding={isMobile ? "0.5rem" : "0 1rem"}
+        color="#D4AF37"
       >
         {label}
       </Typography>

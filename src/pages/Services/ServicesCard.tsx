@@ -43,20 +43,13 @@ export default function ServicesCard({
       />
 
       <CardContent>
-        <Typography
-          order={3}
-          style={{
-            padding: "1rem 0",
-          }}
-        >
+        <Typography order={3} padding="1rem 0">
           {cardHeading}
         </Typography>
         <Typography variant="body1">{cardBody}</Typography>
       </CardContent>
       <CardContent>
-        <Button sx={{ color: "#D4AF37", padding: "0" }}>
-          {cardButtonLabel}
-        </Button>
+        <Button sx={{ color: "#D4AF37" }}>{cardButtonLabel}</Button>
       </CardContent>
     </Card>
   );

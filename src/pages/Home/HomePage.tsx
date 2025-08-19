@@ -19,18 +19,16 @@ export default function HomePage() {
           <Header />
         </Box>
         <Box
-          sx={{
-            flexGrow: 1,
-            position: "relative",
-            display: "flex",
-            justifyContent: "center",
-          }}
+          flexGrow="1"
+          position="relative"
+          display="flex"
+          justifyContent="center"
         >
           <Box
+            position="absolute"
+            width="100%"
+            height="100%"
             sx={{
-              position: "absolute",
-              width: "100%",
-              height: "100%",
               backgroundImage: `url(${operaHouse})`,
               objectFit: "cover",
               backgroundPosition: "center",
@@ -39,27 +37,20 @@ export default function HomePage() {
           />
 
           <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              position: "absolute",
-              bottom: "50%",
-              alignItems: isMobile ? "" : "center",
-            }}
+            display="flex"
+            flexDirection="column"
+            position="absolute"
+            bottom="50%"
+            alignItems={isMobile ? "" : "center"}
           >
             <Typography
               variant="h1"
-              sx={{
-                fontSize: isMobile ? "2.5rem" : "auto",
-                fontWeight: "bold",
-              }}
+              fontSize={isMobile ? "2.5rem" : "auto"}
+              fontWeight="bold"
             >
               SouthEast Point Group
             </Typography>
-            <Typography
-              variant="h2"
-              sx={{ fontSize: isMobile ? "2rem" : "auto" }}
-            >
+            <Typography variant="h2" fontSize={isMobile ? "2rem" : "auto"}>
               Private Tours, Unforgettable Experiences
             </Typography>
           </Box>

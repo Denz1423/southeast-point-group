@@ -17,13 +17,7 @@ export default function About() {
 
   return (
     <Box p="3rem" mb={10}>
-      <Typography
-        variant="h3"
-        p="1rem"
-        style={{
-          textAlign: "center",
-        }}
-      >
+      <Typography variant="h3" padding="1rem" textAlign="center">
         About Us
       </Typography>
       <Grid container spacing={4}>
@@ -42,10 +36,7 @@ export default function About() {
 
         <Grid size={{ xs: 12, md: 6 }}>
           <Box className="secondhidden">
-            <Typography
-              variant="h4"
-              style={{ margin: "8px", textAlign: "center" }}
-            >
+            <Typography variant="h4" margin="8px" textAlign="center">
               Transporting is caring
             </Typography>
             {isMobile ? (
