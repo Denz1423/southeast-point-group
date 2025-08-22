@@ -16,7 +16,7 @@ export default function About() {
   };
 
   return (
-    <Box p="3rem" mb={10}>
+    <Box p="3rem" mb={10} sx={{ minHeight: "100vh" }}>
       <Typography variant="h3" padding="1rem" textAlign="center">
         About Us
       </Typography>

@@ -14,7 +14,7 @@ export default function HomePage() {
 
   return (
     <Fade in={fadeIn} timeout={1000} unmountOnExit>
-      <Box display="flex" flexDirection="column" height="100vh">
+      <Box display="flex" flexDirection="column" sx={{ minHeight: "100vh" }}>
         <Box position="relative" width="100%">
           <Header />
         </Box>

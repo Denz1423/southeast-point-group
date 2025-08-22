@@ -12,7 +12,13 @@ export default function ContactPage() {
   useRevealOnScroll([".slide-in-left", ".slide-in-right"]);
 
   return (
-    <Box>
+    <Box
+      sx={{ minHeight: "100vh" }}
+      display="flex"
+      flexDirection="column"
+      justifyContent="space-evenly"
+      alignItems="center"
+    >
       <Typography
         variant="h3"
         p="1rem"

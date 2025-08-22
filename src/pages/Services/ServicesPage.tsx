@@ -10,6 +10,7 @@ export default function ServicesPage() {
       justifyContent="center"
       alignItems="center"
       margin="1rem 0"
+      sx={{ minHeight: "100vh" }}
     >
       <Typography variant="h3" p="1rem" textAlign="center">
         What We Offer

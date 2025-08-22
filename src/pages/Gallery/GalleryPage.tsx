@@ -25,6 +25,7 @@ export default function GalleryPage() {
       flexDirection="column"
       justifyContent="center"
       width="100%"
+      sx={{ minHeight: "100vh" }}
     >
       <Typography variant="h3" margin="1rem" textAlign="center">
         Gallery
