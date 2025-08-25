@@ -1,6 +1,7 @@
 import { PageLinks } from "@/components/Navigation/NavData";
 import useIsMobile from "@/hooks/useIsMobile";
 import { Link, Stack } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
 export default function NavList() {
   const isMobile = useIsMobile();
@@ -17,6 +18,8 @@ export default function NavList() {
           sx={{
             cursor: "pointer",
           }}
+          component={NavLink}
+          to={`${page.id}`}
         >
           {page.name}
         </Link>

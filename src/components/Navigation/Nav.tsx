@@ -32,7 +32,7 @@ export default function Nav() {
           display: { xs: "block", sm: "none" },
           "& .MuiDrawer-paper": {
             backgroundColor: "#0d0d0d",
-            width: "100%",
+            width: "50%",
           },
         }}
       >

@@ -5,12 +5,8 @@ type LinkType = {
 
 export const PageLinks: LinkType[] = [
   {
-    id: "home",
+    id: "/",
     name: "Home",
-  },
-  {
-    id: "about",
-    name: "About",
   },
   {
     id: "services",

@@ -6,7 +6,7 @@ import useIsMobile from "@/hooks/useIsMobile";
 import { useState } from "react";
 import { Box, Button, Grid, Typography } from "@mui/material";
 
-export default function About() {
+export default function AboutSection() {
   useRevealOnScroll([".firsthidden", ".secondhidden"]);
   const isMobile = useIsMobile();
   const [readMore, setReadMore] = useState(false);
